@@ -1,0 +1,129 @@
+/* Redondear los bordes de todos los elementos con esta clase */
+.rounded-borders {
+    border-radius: 15px;
+}
+
+/* Añadir un borde verde alrededor de los datos */
+.bordered-green {
+    border: 2px solid #198653;
+}
+
+/* Estilo para centrar el texto en negritas */
+.font-weight-bold {
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Colores de fondo para ayudar a visualizar la distribución */
+.lightblue-bg {
+    background-color: rgb(25,135,84,255);
+}
+
+/* Separación entre filas */
+.row {
+    margin-bottom: 20px; /* Espacio entre filas */
+}
+
+/* Agregar separación entre columnas sin que se apilen */
+.col-md-6, .col-md-4 {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Estilo para las tablas */
+.table-wrapper {
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.table-title {
+    background-color: #198653;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px 8px 0 0;
+}
+
+.table-title h2 {
+    margin: 0;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+thead {
+    background-color: #986543;
+    color: white;
+}
+
+table th {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+table td {
+    color: #555;
+}
+
+/* Alternar colores de filas */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Efecto hover */
+tr:hover {
+    background-color: #e9f7df;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo de los botones */
+a.btn {
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 6px 12px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a.btn-primary {
+    background-color: #198653;
+    border: none;
+    color: white;
+}
+
+a.btn-primary:hover {
+    background-color: #145a40;
+}
+
+a.btn-primary i {
+    margin-right: 5px;
+}
+
+.btn-sm {
+    padding: 6px 10px;
+    font-size: 14px;
+}

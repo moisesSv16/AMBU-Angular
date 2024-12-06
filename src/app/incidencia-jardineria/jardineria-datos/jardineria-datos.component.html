@@ -1,0 +1,207 @@
+<br><br><br><br><br><br>
+<div class="container-fluid">
+    <div class="row mb-2">
+        <div class="col-sm-12 text-center">
+            <h1 class="m-0">Detalles de la Incidencia de Jardinería</h1>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-10 mx-auto">
+            <div class="card card-primary card-outline rounded-borders">
+                <div class="card-header lightblue-bg">
+                    <h5 class="m-0 text-center">Información de la Incidencia</h5>
+                </div>
+                <div class="card-body bordered-green">
+                    <div *ngIf="detalles">
+
+                        <!-- Primera fila (Folio, Municipio, Parque) -->
+                        <div class="row">
+                            <div class="col-md-4 rounded-borders bordered-green">
+                                <div class="form-group text-center">
+                                    <label for="folio" class="font-weight-bold">Número de folio:</label>
+                                    <p>{{ detalles?.folio || 'No disponible' }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 lightcoral-bg rounded-borders bordered-green">
+                                <div class="form-group text-center">
+                                    <label for="municipio" class="font-weight-bold">Municipio:</label>
+                                    <p>{{ detalles?.NombreMunicipio || 'No disponible' }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 lightgreen-bg rounded-borders bordered-green">
+                                <div class="form-group text-center">
+                                    <label for="parque" class="font-weight-bold">Parque:</label>
+                                    <p>{{ detalles?.NombreParque || 'No disponible' }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Encabezado de Datos del Reportante -->
+                        <div class="row">
+                            <div class="col-12 card-header lightblue-bg">
+                                <h5 class="m-0 text-center">Datos del Reportante</h5>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 lightpink-bg rounded-borders bordered-green">
+                                <div class="form-group text-center">
+                                    <label for="nombre_usuario" class="font-weight-bold">Nombre del Usuario:</label>
+                                    <p>{{ detalles?.NombreUsuario || 'No disponible' }} {{ detalles?.ApellidosUsuario ||
+                                        '' }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 lightgray-bg rounded-borders bordered-green">
+                                <div class="form-group text-center">
+                                    <label for="email_usuario" class="font-weight-bold">Email del Usuario:</label>
+                                    <p>{{ detalles?.EmailUsuario || 'No disponible' }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 lightyellow-bg rounded-borders bordered-green">
+                                <div class="form-group text-center">
+                                    <label for="numero_empleado" class="font-weight-bold">Número de Empleado:</label>
+                                    <p>{{ detalles?.NumeroEmpleado || 'No disponible' }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Encabezado Detalles de la Incidencia -->
+                        <div class="col-12 card-header lightblue-bg">
+                            <h5 class="m-0 text-center">Detalles de la Incidencia</h5>
+                        </div>
+                        <!-- Segunda fila (Tipo de Solicitud, Descripción del Reporte) -->
+                        <div class="row mt-3">
+                            <div class="col-md-6 rounded-borders bordered-green">
+                                <div class="form-group text-center">
+                                    <label for="tipo_solicitud" class="font-weight-bold">Tipo de Solicitud:</label>
+                                    <p>{{ detalles?.tipo_solicitud || 'No disponible' }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 lightgreen-bg rounded-borders bordered-green">
+                                <div class="form-group text-center">
+                                    <label for="descripcion_reporte" class="font-weight-bold">Descripción del
+                                        Reporte:</label>
+                                    <p>{{ detalles?.descripcion_reporte || 'No disponible' }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tercera fila (Estado, Fechas) -->
+                        <div class="row mt-3">
+                            <div class="col-md-4 lightpink-bg rounded-borders bordered-green">
+                                <div class="form-group text-center">
+                                    <label for="estado" class="font-weight-bold">Estado de la incidencia:</label>
+                                    <p>{{ detalles?.estado || 'No disponible' }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 lightgreen-bg rounded-borders bordered-green">
+                                <div class="form-group text-center">
+                                    <label for="created_at" class="font-weight-bold">Fecha de Creación:</label>
+                                    <p>{{ detalles?.created_at ? (detalles.created_at ) : 'No disponible' }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 lightyellow-bg rounded-borders bordered-green">
+                                <div class="form-group text-center">
+                                    <label for="updated_at" class="font-weight-bold">Fecha de Actualización:</label>
+                                    <p>{{ detalles?.updated_at ? (detalles.updated_at ) : 'No disponible' }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-12 lightgreen-bg rounded-borders">
+                                <div class="form-group text-center ">
+                                    <label for="created_at" class="font-weight-bold">Imágenes</label>
+                                    <div class="row">
+                                        <!-- Imagen 1 -->
+                                        <div class="col-md-6">
+                                            <label for="created_at" class="font-weight-bold">Imagen 1</label>
+                                            <a href="https://www.deutschland.de/sites/default/files/media/image/tdt_02102023_wald_wald_der_zukunft_mischwald.jpg"
+                                                target="_blank">
+                                                <img src="https://www.deutschland.de/sites/default/files/media/image/tdt_02102023_wald_wald_der_zukunft_mischwald.jpg"
+                                                    alt="Imagen 1" class="img-fluid rounded-borders bordered-green">
+                                            </a>
+                                        </div>
+                                        <!-- Imagen 2 -->
+                                        <div class="col-md-6">
+                                            <label for="created_at" class="font-weight-bold">Imagen 2</label>
+                                            <a href="https://www.deutschland.de/sites/default/files/media/image/tdt_02102023_wald_wald_der_zukunft_mischwald.jpg"
+                                                target="_blank">
+                                                <img src="https://www.deutschland.de/sites/default/files/media/image/tdt_02102023_wald_wald_der_zukunft_mischwald.jpg"
+                                                    alt="Imagen 2" class="img-fluid rounded-borders bordered-green">
+                                            </a>
+                                        </div>
+                                        <!-- Imagen 3 -->
+                                        <div class="col-md-6">
+                                            <label for="created_at" class="font-weight-bold">Imagen 3</label>
+                                            <a href="https://www.deutschland.de/sites/default/files/media/image/tdt_02102023_wald_wald_der_zukunft_mischwald.jpg"
+                                                target="_blank">
+                                                <img src="https://www.deutschland.de/sites/default/files/media/image/tdt_02102023_wald_wald_der_zukunft_mischwald.jpg"
+                                                    alt="Imagen 3" class="img-fluid rounded-borders bordered-green">
+                                            </a>
+                                        </div>
+                                        <!-- Imagen 4 -->
+                                        <div class="col-md-6">
+                                            <label for="created_at" class="font-weight-bold">Imagen 4</label>
+                                            <a href="https://www.deutschland.de/sites/default/files/media/image/tdt_02102023_wald_wald_der_zukunft_mischwald.jpg"
+                                                target="_blank">
+                                                <img src="https://www.deutschland.de/sites/default/files/media/image/tdt_02102023_wald_wald_der_zukunft_mischwald.jpg"
+                                                    alt="Imagen 4" class="img-fluid rounded-borders bordered-green">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Nueva sección de Validación -->
+                        <div *ngIf="detalles?.estado === 'Cerrado'" class="row mt-4">
+                            <div class="col-12 card-header lightblue-bg">
+                                <h5 class="m-0 text-center">Validación de la Incidencia</h5>
+                            </div>
+                        </div>
+
+                        <!-- Detalles de la Validación -->
+                        <div *ngIf="detalles?.estado === 'Cerrado'" class="row mt-3">
+                            <div class="col-md-6 rounded-borders bordered-green">
+                                <div class="form-group text-center">
+                                    <label for="validador" class="font-weight-bold">Validador:</label>
+                                    <p>{{ detalles?.Validador || 'No disponible' }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 lightgreen-bg rounded-borders bordered-green">
+                                <div class="form-group text-center">
+                                    <label for="validacion_fecha" class="font-weight-bold">Fecha de validación:</label>
+                                    <p>{{ detalles?.validacion_fecha ? (detalles.validacion_fecha) : 'No disponible' }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Estado de la Validación -->
+                        <div *ngIf="detalles?.estado === 'Cerrado'" class="row mt-3">
+                            <div class="col-md-12 rounded-borders bordered-green">
+                                <div class="form-group text-center">
+                                    <br>
+                                    <label for="validacion_estado" class="font-weight-bold">Estado de la
+                                        Validación:</label>
+                                    <p>{{ detalles?.validacion_estado || 'Pendiente por Validar' }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <button type="button" class="btn btn-success">Regresar</button>
+                        </div>
+
+                    </div>
+
+                    <div *ngIf="!detalles">
+                        <p>No se encontraron detalles para esta incidencia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

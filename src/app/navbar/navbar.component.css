@@ -1,0 +1,6 @@
+.navbar {
+
+  background-color: white;
+  border: 1px solid #ccc; /* Opcional: agregar un borde */
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+}

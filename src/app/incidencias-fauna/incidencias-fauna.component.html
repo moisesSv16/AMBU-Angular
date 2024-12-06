@@ -1,0 +1,77 @@
+<div class="container" style="padding-top: 6em;">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="text-center"><b>Incidencias Fauna</b></h2>
+        </div>
+      </div>
+    </div>
+    <br>
+    <!-- Filtros por Estado, Municipio y Parque -->
+    <div class="table-filter">
+      <div class="row">
+        <!-- Filtro por Estado -->
+        <div class="col-sm-4">
+          <label for="estado">Estatus:</label>
+          <select class="form-control" [(ngModel)]="filtroEstado" (ngModelChange)="applyFilters()">
+            <option value="">Todos</option>
+            <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
+          </select>
+        </div>
+
+        <!-- Filtro por Municipio -->
+        <div class="col-sm-4">
+          <label for="municipio">Municipio:</label>
+          <select class="form-control" [(ngModel)]="filtroMunicipio" (ngModelChange)="applyFilters()">
+            <option value="">Todos</option>
+            <option *ngFor="let municipio of municipios" [value]="municipio">{{ municipio }}</option>
+          </select>
+        </div>
+
+        <!-- Filtro por Parque -->
+        <div class="col-sm-4">
+          <label for="parque">Parque:</label>
+          <select class="form-control" [(ngModel)]="filtroParque" (ngModelChange)="applyFilters()">
+            <option value="">Todos</option>
+            <option *ngFor="let parque of parques" [value]="parque">{{ parque }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="table-responsive">
+      <table #table_fauna class="display table table-striped table-hover" style="width:100%">
+        <thead>
+          <tr>
+            <th>Folio</th>
+            <th>Municipio</th>
+            <th>Parque</th>
+            <th>Ubicación</th>
+            <th>Estatus</th>
+            <th>Fecha de creación</th>
+            <th>Detalles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let incidencia of registrosFiltrados">
+            <td>{{ incidencia.folio || 'No disponible' }}</td>
+            <td>{{ incidencia.NombreMunicipio || 'No disponible' }}</td>
+            <td>{{ incidencia.NombreParque || 'No disponible' }}</td>
+            <td>{{ incidencia.ubicacion || 'No disponible' }}</td>
+            <td>{{ incidencia.estado || 'No disponible' }}</td>
+            <td>{{ incidencia.created_at ? (incidencia.created_at | date : 'dd/MM/yyyy') : 'No disponible' }}</td>
+            <td>
+              <a class="btn btn-primary btn-sm" title="Ver Detalles" (click)="navigateToDetails(incidencia.id)">
+                <i class="bi bi-eye"></i> Ver
+              </a>
+            </td>
+          </tr>
+          <tr *ngIf="registrosFiltrados.length === 0">
+            <td colspan="7" class="text-center">No se encontraron registros para los filtros aplicados.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

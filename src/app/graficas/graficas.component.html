@@ -1,0 +1,65 @@
+<br><br><br>
+<div class="container mt-5">
+  <h1 class="text-center">Detalles de Incidencias por Estado</h1>
+  
+  <!-- Select para elegir el tipo de incidencia -->
+  <div class="mb-4">
+    <label for="tipoIncidencia" class="form-label">Seleccione el tipo de incidencia:</label>
+    <select id="tipoIncidencia" class="form-select" [(ngModel)]="tipoSeleccionado" (change)="cargarDatos()">
+      <option *ngFor="let incidencia of incidencias" [value]="incidencia.nombreOriginal">
+        {{ incidencia.nombreFormateado }}
+      </option>
+    </select>
+  </div>
+  
+  <!-- Barra que muestra el total de incidencias -->
+  <div class="total-incidencias-bar">
+    <h2 class="text-center fw-bold text-white">Total de Incidencias: {{ totalIncidencias }}</h2>
+  </div>
+
+  <!-- Gráfica de incidencias -->
+  <div class="container-graficas mt-4">
+    <canvas id="graficaIncidencias"></canvas>
+  </div>
+
+  <!-- Mostrar los detalles por estado -->
+  <div *ngIf="incidenciasDetalles.length > 0; else noData" class="mt-5">
+    <div *ngFor="let estado of dataEstados" class="estado-card mt-3">
+      <h4 [style.background-color]="getEstadoColor(estado.estado)" class="p-2 text-white">
+        {{ estado.estado }} (Total: {{ estado.cantidad }})
+      </h4>
+      <input type="text" placeholder="Filtrar..." [(ngModel)]="filtro[estado.estado]" class="form-control mb-2" />
+      <table class="table table-bordered table-striped text-center">
+        <thead>
+          <tr>
+            <th>Folio</th>
+            <th>Municipio</th>
+            <th>Parque</th>
+            <th>Detalles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let detalle of filtrarIncidenciasPorEstado(estado.estado) | paginate: { itemsPerPage: 5, currentPage: pagina[estado.estado] }">
+            <td>{{ detalle.folio }}</td>
+            <td>{{ detalle.municipio }}</td>
+            <td>{{ detalle.parque }}</td>
+            <td>
+              <a [ngClass]="{'btn-estado': true, 'amarillo': detalle.estado === 'Abierto', 'naranja': detalle.estado === 'En proceso', 'rojo': detalle.estado === 'Pendiente', 'verde': detalle.estado === 'Cerrado'}"
+              title="Ver Detalles" 
+              (click)="navigateToDetails(detalle.id)">
+             <i class="bi bi-eye"> </i>  Ver
+           </a>
+           
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="pagina[estado.estado] = $event"></pagination-controls>
+    </div>
+  </div>
+
+  <ng-template #noData>
+    <p class="text-center">No hay datos disponibles para el tipo de incidencia seleccionado.</p>
+  </ng-template>
+</div>

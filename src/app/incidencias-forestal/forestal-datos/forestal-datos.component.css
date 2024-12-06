@@ -1,0 +1,54 @@
+/* Redondear los bordes de todos los elementos con esta clase */
+.rounded-borders {
+    border-radius: 15px;
+}
+
+/* Añadir un borde azul alrededor de los datos */
+.bordered-green {
+    border: 2px solid #198653; /* Color verde */
+}
+
+/* Estilo para centrar el texto en negritas */
+.font-weight-bold {
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Colores de fondo para ayudar a visualizar la distribución */
+.lightblue-bg {
+    background-color: rgb(25,135,84,255);
+}
+
+/* Separación entre filas */
+.row {
+    margin-bottom: 20px; /* Espacio entre filas */
+}
+
+/* Agregar separación entre columnas sin que se apilen */
+.col-md-6, .col-md-4 {
+    padding: 10px; /* Espacio interno para que los bordes no se toquen */
+    box-sizing: border-box; /* Asegura que el padding y borde no modifiquen el tamaño de las columnas */
+}
+
+/* Para que las columnas no se apilen */
+.col-md-6, .col-md-4 {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    width: calc(50% - 20px); /* Para las columnas de 6 espacios */
+}
+
+.col-md-4 {
+    width: calc(33.33% - 20px); /* Para las columnas de 4 espacios */
+}
+
+/* Estilo de la fuente y tamaño de letra */
+body, p, label {
+    font-size: 18px; /* Tamaño de letra */
+    font-family: 'Arial', sans-serif; /* Tipo de letra */
+}
+
+/* Centrar las etiquetas */
+.text-center {
+    text-align: center;
+}
